@@ -1,6 +1,30 @@
-# CranBerryStuffing
+# MoodSic
 
-Delicious Assortment of Code, Many Thanks
+## Title
+* as a user id like to produce a list of underground songs related to my mood
+
+## Introduction
+* This app is used to put sound to your mood, plug in a description of your mood and output your catered playlist!
+
+## Installation
+* This reqruires no installation 
+
+## Usage
+* Put two or more adjectives to produce songs that pertain to the mood
+
+## Requirement
+* When I input a description of my mood, the interface provides a list of 10 suggested songs 
+* When I click on the song it takes me to the SoundCloud link
+
+## Technologies
+* SoundCloud API
+* GPT API
+
+## Contributing
+* Team Cranberry
+
+## License
+* MIT 
 
 ## Parameters
 
