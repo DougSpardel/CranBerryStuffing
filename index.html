@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mood-Based Song Suggestions</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    
+    <title>MoodSic</title>
 </head>
 <body>
     <div class="container">
-        <h1>Song Suggestions</h1>
-        <p>Enter your mood below:</p>
-        <input type="text" id="moodInput" placeholder="Enter your mood">
-        <button id="generateButton">Generate Suggestions</button>
-        <ul id="suggestionList">
-            <!-- Suggestions will appear here -->
-        </ul>
+        <h1 class="header">Put some music to the sound of your mood. Tell MoodSic how you feel below!</h1>
+        <input type="text" id="mood-input" class="mood-input" placeholder="Describe your mood...">
+        <button class="submit-button" onclick="showDropdown()">Generate Playlist</button>
+        <!-- Dropdown container -->
+        <div id="playlist-dropdown" class="playlist-dropdown"></div>
     </div>
     
-    <script src="script.js"></script>
+       <script src="./assets/js/script.js"></script>
+    
 </body>
 </html>
