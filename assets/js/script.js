@@ -1,4 +1,43 @@
 function showDropdown() {
+    // Replace 'YOUR_API_KEY' with the API key you obtained
+const apiKey = 'a6645fa6';
+
+// Base URL for the Jamendo API
+const baseUrl = 'https://api.jamendo.com/v3.0/';
+
+// Example endpoint to get a list of tracks
+const endpoint = 'tracks/';
+
+// Set parameters for the request
+const params = {
+  client_id: apiKey,
+  format: 'json',  // Response format
+  limit: 10,       // Number of results to retrieve
+};
+
+// Construct the URL with parameters
+const url = new URL(baseUrl + endpoint);
+Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+// Make the GET request using fetch
+fetch(url)
+  .then(response => {
+    // Check if the request was successful (status code 200)
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Work with the JSON response
+    for (const track of data.results) {
+      console.log(track.name);
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
     const moodInput = document.getElementById("mood-input");
     const playlistDropdown = document.getElementById("playlist-dropdown");
 
