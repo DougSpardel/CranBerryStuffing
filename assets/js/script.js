@@ -69,6 +69,5 @@ fetch(url)
         // Clear and hide the playlist dropdown if the mood input is empty
         playlistDropdown.innerHTML = "";
         playlistDropdown.style.display = "none";
-        //Why do I Suck at Fantasy Football?
     }
 }
