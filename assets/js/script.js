@@ -48,10 +48,30 @@ function showDropdown() {
     // this handles the data that is pulled from the response
     .then((data) => {
       // Work with the JSON response; iterates over the results array and logs the name of each track to the console
-      for (const track of data.results) {
-        console.log(track.name);
-      }
-    })
+      const tracks = data.results;
+
+    // Check if there are tracks in the response
+    if (tracks.length > 0) {
+      // Generate the dropdown list dynamically based on track names
+      const dropdownHTML = tracks
+        .map((track, index) => {
+          return `
+          <div class="dropdown-item">
+            ${index + 1}. 
+            <button onclick="window.open('${track.shareurl}', '_blank')">Play ${track.name}</button>
+          </div>`;
+        })
+        .join("");
+
+      // Update the playlist dropdown content and make it visible
+      playlistDropdown.innerHTML = dropdownHTML;
+      playlistDropdown.style.display = "block";
+    } else {
+      // If no tracks are available, display a message or handle accordingly
+      playlistDropdown.innerHTML = "<div class='dropdown-item'>No tracks available</div>";
+      playlistDropdown.style.display = "block";
+    }
+  })
     .catch((error) => {
       // this will catch any errors and return the string "error" (acts as an error message)
       console.error("Error:", error);
@@ -80,38 +100,4 @@ function showDropdown() {
       // Handle errors
       console.error("Error:", error);
     });
-
-  // All other functionalities involving user input and correlation to API
-
-  // Check if the mood input is not empty
-  if (moodInput.value.trim() !== "") {
-    // Sample list of 10 songs (you can replace with actual data from your API)
-    const songs = [
-      "Song 1",
-      "Song 2",
-      "Song 3",
-      "Song 4",
-      "Song 5",
-      "Song 6",
-      "Song 7",
-      "Song 8",
-      "Song 9",
-      "Song 10",
-    ];
-
-    // Generate the dropdown list
-    const dropdownHTML = songs
-      .map((song, index) => {
-        return `<div class="dropdown-item">${index + 1}. ${song}</div>`;
-      })
-      .join("");
-
-    // Update the playlist dropdown content and make it visible
-    playlistDropdown.innerHTML = dropdownHTML;
-    playlistDropdown.style.display = "block";
-  } else {
-    // Clear and hide the playlist dropdown if the mood input is empty
-    playlistDropdown.innerHTML = "";
-    playlistDropdown.style.display = "none";
   }
-}
