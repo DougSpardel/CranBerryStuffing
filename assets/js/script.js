@@ -58,7 +58,7 @@ function showDropdown() {
           return `
           <div class="dropdown-item">
             ${index + 1}. 
-            <button onclick="window.open('${track.shareurl}', '_blank')">Play ${track.name}</button>
+            <button class = "stream-button" onclick="window.open('${track.shareurl}', '_blank')"> ${track.name}</button>
           </div>`;
         })
         .join("");

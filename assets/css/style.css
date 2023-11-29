@@ -1,9 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #7d6a9c, #ea21b8);
+    background: linear-gradient(to bottom, #0c1cac, #ea21b8);
     margin: 0;
     padding: 0;
-    color: #9cf29d;
+    color: white;
+}
+
+.dropdown-item{
+    font-size: 32px;
+    text-align: left;
+    margin-right: 5px;
 }
 
 .container {
@@ -22,31 +28,31 @@ body {
 }
 
 .mood-input {
-    width: 300px;
-    padding: 10px;
-    font-size: 16px;
+    width: 400px;
+    padding: 15px;
+    font-size: 30px;
     border: none;
     border-radius: 5px;
     margin-bottom: 20px;
     outline: none;
     background-color: rgba(255, 142, 142, 0.2);
-    color: #9cf29d;
+    color: #ffffff;
     text-align: center;
 }
 
 .mood-input::placeholder {
-         color: #9cf29d;
+         color: white;
     opacity: 0.8;
 }
 
 .submit-button {
     background: linear-gradient(to bottom, #f27fa5, #f06395);
-    color: #9cf29d;
+    color: white;
 
     border: none;
     border-radius: 5px;
     padding: 12px 20px;
-    font-size: 18px;
+    font-size: 40px;
     cursor: pointer;
     transition: background 0.3s ease;
     margin: 15px;
@@ -54,4 +60,19 @@ body {
 
 .submit-button:hover {
     background: linear-gradient(to bottom, #a8174a, #ff4081);
+}
+
+.stream-button{
+    padding: 10px;
+    background-color: rgb(88, 212, 212);
+    color: rgb(66, 66, 66);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 32px;
+    margin-top: 3px;
+}
+
+.stream-button:hover{
+    background: linear-gradient(to bottom, #13af3a, #08af53);
 }
