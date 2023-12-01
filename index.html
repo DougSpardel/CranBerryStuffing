@@ -6,14 +6,24 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     
-    <title>MoodSic</title>
+    <title>moodSic</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="header">Let your mood dictate your playlist. Tell MoodSic how you feel below!</h1>
-        <input type="text" id="mood-input" class="mood-input" placeholder="Describe your mood...">
+        <h1 class="header">What's the vibe? Input a mood for underground artists custom recommended for you:</h1>
+        <!-- <input type="text" id="mood-input" class="mood-input" placeholder="Describe your mood..."> -->
+        <select class="mood-button">
+            <option value="Happy">Happy</option>
+            <option value="Energetic">Energetic</option>
+            <option value="Angry">Angry</option>
+            <option value="Erotic">Erotic</option>
+            <option value="Dreamy">Dreamy</option>
+            <option value="Calm">Calm</option>
+            <option value="Sad">Sad</option>
+        </select>
+
         <button class="submit-button" onclick="showDropdown()">Generate Playlist</button>
-        <!-- Dropdown container -->
+     
         <div id="playlist-dropdown" class="playlist-dropdown"></div>
     </div>
     

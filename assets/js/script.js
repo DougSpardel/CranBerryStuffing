@@ -10,6 +10,9 @@ function showDropdown() {
   // moodinput needed to be identified first because it is called in the paramsGiphy; it holds the reference to the HTML
   // element with the ID mood-input
   const moodInput = document.getElementById("mood-input");
+const moodSelect = document.querySelector(".mood-button");
+const mood = moodSelect.value;
+
   // playlistdropdown holds a reference to the HTML element with the ID playlist-dropdown
   const playlistDropdown = document.getElementById("playlist-dropdown");
 
@@ -22,6 +25,7 @@ function showDropdown() {
     client_id: apiKey,
     format: "json", // Response format
     limit: 10, // Number of results to retrieve (we decided 10 is the magic number)
+    tags: mood,
   };
   // Construct the URL with parameters
   // this line creates a new url object by combining the baseurl and endpoint variables; sets up the initial url for 
@@ -34,6 +38,7 @@ function showDropdown() {
   );
 
   // Make the GET request using fetch
+  console.log(url);
   fetch(url)
   // this block handles the response from the server  and checks if it is ok (status code 200)
     .then((response) => {
@@ -49,7 +54,7 @@ function showDropdown() {
     .then((data) => {
       // Work with the JSON response; iterates over the results array and logs the name of each track to the console
       const tracks = data.results;
-
+console.log(data);
     // Check if there are tracks in the response
     if (tracks.length > 0) {
       // Generate the dropdown list dynamically based on track names
@@ -80,7 +85,7 @@ function showDropdown() {
   // All Things Giphy
   const paramsGiphy = {
     api_key: apiKeyGiphy,
-    tag: moodInput.textContent, // Replace with the desired tag or criteria
+    // tag: moodInput.textContent, // Replace with the desired tag or criteria
   };
 
   // Make the request to the Giphy API
