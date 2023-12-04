@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #0c1cac, #ea21b8);
+    background: linear-gradient(to bottom, hsla(234, 87%, 36%, 0.722), hsla(315, 83%, 52%, 0.713));
     margin: 0;
     padding: 0;
     color: white;
@@ -20,11 +20,15 @@ body {
     height: 100vh;
 }
 
-.header {
-    font-size: 36px;
-    margin-bottom: 20px;
+#header {
+    color:#ffffff;
+    font-size: 110px;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.subheader1 {
+    font-size: 70px;
 }
 
 .genre-input {
