@@ -111,6 +111,12 @@ console.log(data);
     });
   }
   function getGiphy(){
-    let searchquerry
+    let q = ""
+    let limit = ""
+    let offset = ""
+    let rating = ""
+    let lang = ""
+    let random_id = ""
+    let bundle = ""
 
   }
