@@ -76,6 +76,7 @@ console.log(data);
       // If no tracks are available, display a message or handle accordingly
       playlistDropdown.innerHTML = "<div class='dropdown-item'>No tracks available</div>";
       playlistDropdown.style.display = "block";
+
     }
   })
     .catch((error) => {
@@ -83,20 +84,14 @@ console.log(data);
       console.error("Error:", error);
     });
 
-    getGiphy()
-
-
-  // All Things Giphy
-  const paramsGiphy = {
-    api_key: apiKeyGiphy,
-    // tag: moodInput.textContent, // Replace with the desired tag or criteria
-  };
-
+     // All Things Giphy
+    let headers = getGiphy(moodInput, apiKeyGiphy)
+  
   // Make the request to the Giphy API
   // this whole axios functionality was taken from chatgpt because I had no knowledge of how to make request for giphy
   // axios is a javascript library used for making http requests and simplifies requests
   axios
-    .get(endpointGiphy, { params: paramsGiphy })
+    .get(endpointGiphy, { params: headers })
     // below performs a getrequest to the destination url with the parameters we outlined in the object paramsgiphy
     .then((response) => {
       // Handle the response by extracting the url of the random gif from giphy api; it is assumed to have a nested data property
@@ -110,13 +105,20 @@ console.log(data);
       console.error("Error:", error);
     });
   }
-  function getGiphy(){
-    let q = ""
-    let limit = ""
-    let offset = ""
-    let rating = ""
-    let lang = ""
-    let random_id = ""
-    let bundle = ""
-
+  function getGiphy(moodInput, apiKey){
+    let query = moodInput
+    let limit = 1
+    let offset = 0
+    let rating = "r"
+    let lang = "en"
+  
+    const paramsGiphy = {
+      api_key: apiKey,
+      q: query,
+      limint: limit,
+      offset: offset,
+      rating: rating,
+      lang: lang,
+    };
+    return paramsGiphy;
   }
