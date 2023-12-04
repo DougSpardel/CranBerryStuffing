@@ -48,18 +48,6 @@ body {
     background: linear-gradient(to bottom, #a8174a, #ff4081);
 }
 
-/* .stream-button{
-    padding: 10px;
-    background-color: rgb(88, 212, 212);
-    color: rgb(252, 251, 251);
-    border: 1px solid #ffffff;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 32px;
-    margin-top: 3px;
-    list-style-type: none;
-}
-
 .stream-button:hover{
     background: linear-gradient(to bottom, rgb(88, 212, 212), #29b9f7);
-} */
+}
