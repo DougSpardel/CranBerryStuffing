@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, hsla(234, 87%, 36%, 0.722), hsla(315, 83%, 52%, 0.713));
+    background: linear-gradient(to right, hsla(234, 87%, 36%, 0.722), hsla(315, 83%, 52%, 0.713));
     margin: 0;
     padding: 0;
     color: white;
@@ -27,8 +27,9 @@ body {
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-.subheader1 {
-    font-size: 70px;
+.dropdown-size {
+    height: fit-content;
+    width: fit-content;
 }
 
 .genre-input {
@@ -52,7 +53,6 @@ body {
 .submit-button {
     background: linear-gradient(to bottom, #f27fa5, #f06395);
     color: white;
-
     border: none;
     border-radius: 5px;
     padding: 12px 20px;

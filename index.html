@@ -15,14 +15,16 @@
         <h2 class="display-4 text-center text-dark pb-5">Let us know your current mood for a curated list of music by underground artists to match your current state of mind</h2>
         <!-- <input type="text" id="mood-input" class="mood-input" placeholder="Describe your mood..."> -->
         
-        <select class="mood-button">
-            <option value="Happy">Happy</option>
-            <option value="Energetic">Energetic</option>
-            <option value="Angry">Angry</option>
-            <option value="Erotic">Erotic</option>
-            <option value="Dreamy">Dreamy</option>
-            <option value="Calm">Calm</option>
-            <option value="Sad">Sad</option>
+        <select class="mood-button dropdown-size btn btn-info dropdown-toggle fs-3 fw-bold text-light" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <option class="dropdown-style fw-bold text-light">Choose Your Mood</option>
+            <hr class="dropdown-divider">
+            <option class="fw-medium text-light" value="Happy">Happy</option>
+            <option class="fw-medium text-light" value="Energetic">Energetic</option>
+            <option class="fw-medium text-light" value="Angry">Angry</option>
+            <option class="fw-medium text-light" value="Erotic">Erotic</option>
+            <option class="fw-medium text-light" value="Dreamy">Dreamy</option>
+            <option class="fw-medium text-light" value="Calm">Calm</option>
+            <option class="fw-medium text-light" value="Sad">Sad</option>
         </select>
 
         <button class="submit-button" onclick="showDropdown()">Generate Playlist</button>
