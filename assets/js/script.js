@@ -63,7 +63,7 @@ console.log(data);
           return `
           <div class="dropdown-item">
             ${index + 1}. 
-            <button class = "stream-button" onclick="window.open('${track.shareurl}', '_blank')"> ${track.name}</button>
+            <button class = "stream-button list-group list-group-item list-group-item-action list-group-item-primary  " onclick="window.open('${track.shareurl}', '_blank')"> ${track.name}</button>
           </div>`;
         })
         .join("");
