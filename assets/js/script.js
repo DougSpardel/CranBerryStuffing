@@ -72,6 +72,7 @@ console.log(data);
       // Update the playlist dropdown content and make it visible
       playlistDropdown.innerHTML = dropdownHTML;
       playlistDropdown.style.display = "block";
+
     } else {
       // If no tracks are available, display a message or handle accordingly
       playlistDropdown.innerHTML = "<div class='dropdown-item'>No tracks available</div>";
@@ -88,22 +89,31 @@ console.log(data);
     let headers = getGiphy(moodInput, apiKeyGiphy)
   
   // Make the request to the Giphy API
-  // this whole axios functionality was taken from chatgpt because I had no knowledge of how to make request for giphy
-  // axios is a javascript library used for making http requests and simplifies requests
-  axios
-    .get(endpointGiphy, { params: headers })
-    // below performs a getrequest to the destination url with the parameters we outlined in the object paramsgiphy
-    .then((response) => {
-      // Handle the response by extracting the url of the random gif from giphy api; it is assumed to have a nested data property
-      // that contains the imageurl
-      const gifUrl = response.data.data.image_url;
-      console.log("Random GIF URL:", gifUrl);
-    })
-    // below catches the errors
-    .catch((error) => {
-      // Handle errors
-      console.error("Error:", error);
-    });
+  
+  const API_KEY = apiKeyGiphy;
+  const searchTerm = mood;
+  const limit = 1; // Number of results to retrieve
+
+  const giphyEndPoint = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=${limit}`;
+
+fetch(giphyEndPoint)
+  .then(response => response.json())
+  .then(data => {
+    const imageUrl = data.data[0].images.fixed_height.url; 
+console.log("Image Url: " + imageUrl)
+
+const image = document.createElement('img');
+console.log("Image: " + image)
+
+image.src = imageUrl;
+console.log("Image Source: " + image.src)
+document.body.appendChild(image);
+console.log("Document.Body: " + document.body)
+  })
+  .catch(error => {
+    console.log('Error fetching data:', error);
+  });
+
   }
   function getGiphy(moodInput, apiKey){
     let query = moodInput
@@ -115,7 +125,7 @@ console.log(data);
     const paramsGiphy = {
       api_key: apiKey,
       q: query,
-      limint: limit,
+      limit: limit,
       offset: offset,
       rating: rating,
       lang: lang,
