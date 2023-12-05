@@ -51,3 +51,14 @@ body {
 .stream-button:hover{
     background: linear-gradient(to bottom, rgb(88, 212, 212), #29b9f7);
 }
+
+#giphy-container {
+    margin-top: 15px; /* Add space between the Giphy image and other elements */
+}
+
+#giphy-container img {
+    max-width: 100%; /* image doesn't overflow its container */
+    height: auto;
+    border-radius: 8px; 
+    
+}

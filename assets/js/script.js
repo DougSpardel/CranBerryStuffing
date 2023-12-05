@@ -103,12 +103,11 @@ fetch(giphyEndPoint)
 console.log("Image Url: " + imageUrl)
 
 const image = document.createElement('img');
-console.log("Image: " + image)
-
 image.src = imageUrl;
-console.log("Image Source: " + image.src)
-document.body.appendChild(image);
-console.log("Document.Body: " + document.body)
+
+const giphyContainer = document.getElementById('giphy-container');
+giphyContainer.appendChild(image);
+
   })
   .catch(error => {
     console.log('Error fetching data:', error);

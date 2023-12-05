@@ -8,12 +8,12 @@
     
     <title>moodSic</title>
 </head>
+
 <body>
     <div class="container">
         <h1 id="header" class="pb-5">Welcome to 🎵moodSic🎵</h1>
         <h2 class="display-2 pb-1 text-info">What's your vibe?</h2>
         <h2 class="display-4 text-center text-dark pb-5">Let us know how you're feeling for a curated list of music by underground artists to match your current mood</h2>
-        <!-- <input type="text" id="mood-input" class="mood-input" placeholder="Describe your mood..."> -->
         
         <select class="mood-button dropdown-size btn btn-info dropdown-toggle fs-3 fw-bold text-light border border-white" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <option class="dropdown-style fw-bold text-light">Choose Your Mood</option>
@@ -31,7 +31,9 @@
             <option class="fw-medium text-light" value="Calm">Calm</option>
             <option class="fw-medium text-light" value="Sad">Sad</option>
         </select>
-
+        <aside>
+            <div id="giphy-container"></div>
+        </aside>
         <button class="submit-button fs-3 fw-bold text-light" onclick="showDropdown()">Generate Playlist</button>
         <div class="container">
             <!-- placeholder for giphy images -->
