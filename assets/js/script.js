@@ -6,7 +6,8 @@ function showDropdown() {
   const apiKeyGiphy = "UUykqbnObDK5IInWC58Hh4Dew9ZTOakf";
   // endpoints are the destinations for the API where the data will be retrieved; endpoint being the one for jamendo
   const endpoint = "tracks/";
-  const endpointGiphy = "https://api.giphy.com/v1/gifs/random";
+  // verify if https: is needed on endpoint Giphy
+  const endpointGiphy = "https://api.giphy.com/v1/gifs/search";
   // moodinput needed to be identified first because it is called in the paramsGiphy; it holds the reference to the HTML
   // element with the ID mood-input
   const moodInput = document.getElementById("mood-input");
@@ -63,7 +64,7 @@ console.log(data);
           return `
           <div class="dropdown-item">
             ${index + 1}. 
-            <button class = "stream-button" onclick="window.open('${track.shareurl}', '_blank')"> ${track.name}</button>
+            <button class = "stream-button list-group list-group-item list-group-item-action list-group-item-primary  " onclick="window.open('${track.shareurl}', '_blank')"> ${track.name}</button>
           </div>`;
         })
         .join("");
@@ -71,10 +72,12 @@ console.log(data);
       // Update the playlist dropdown content and make it visible
       playlistDropdown.innerHTML = dropdownHTML;
       playlistDropdown.style.display = "block";
+
     } else {
       // If no tracks are available, display a message or handle accordingly
       playlistDropdown.innerHTML = "<div class='dropdown-item'>No tracks available</div>";
       playlistDropdown.style.display = "block";
+
     }
   })
     .catch((error) => {
@@ -82,27 +85,50 @@ console.log(data);
       console.error("Error:", error);
     });
 
-  // All Things Giphy
-  const paramsGiphy = {
-    api_key: apiKeyGiphy,
-    // tag: moodInput.textContent, // Replace with the desired tag or criteria
-  };
-
+     // All Things Giphy
+    let headers = getGiphy(moodInput, apiKeyGiphy)
+  
   // Make the request to the Giphy API
-  // this whole axios functionality was taken from chatgpt because I had no knowledge of how to make request for giphy
-  // axios is a javascript library used for making http requests and simplifies requests
-  axios
-    .get(endpointGiphy, { params: paramsGiphy })
-    // below performs a getrequest to the destination url with the parameters we outlined in the object paramsgiphy
-    .then((response) => {
-      // Handle the response by extracting the url of the random gif from giphy api; it is assumed to have a nested data property
-      // that contains the imageurl
-      const gifUrl = response.data.data.image_url;
-      console.log("Random GIF URL:", gifUrl);
-    })
-    // below catches the errors
-    .catch((error) => {
-      // Handle errors
-      console.error("Error:", error);
-    });
+  
+  const API_KEY = apiKeyGiphy;
+  const searchTerm = mood;
+  const limit = 1; // Number of results to retrieve
+
+  const giphyEndPoint = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${searchTerm}&limit=${limit}`;
+
+fetch(giphyEndPoint)
+  .then(response => response.json())
+  .then(data => {
+    const imageUrl = data.data[0].images.fixed_height.url; 
+console.log("Image Url: " + imageUrl)
+
+const image = document.createElement('img');
+console.log("Image: " + image)
+
+image.src = imageUrl;
+console.log("Image Source: " + image.src)
+document.body.appendChild(image);
+console.log("Document.Body: " + document.body)
+  })
+  .catch(error => {
+    console.log('Error fetching data:', error);
+  });
+
+  }
+  function getGiphy(moodInput, apiKey){
+    let query = moodInput
+    let limit = 1
+    let offset = 0
+    let rating = "r"
+    let lang = "en"
+  
+    const paramsGiphy = {
+      api_key: apiKey,
+      q: query,
+      limit: limit,
+      offset: offset,
+      rating: rating,
+      lang: lang,
+    };
+    return paramsGiphy;
   }
