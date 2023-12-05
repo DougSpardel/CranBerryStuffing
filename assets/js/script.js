@@ -6,7 +6,8 @@ function showDropdown() {
   const apiKeyGiphy = "UUykqbnObDK5IInWC58Hh4Dew9ZTOakf";
   // endpoints are the destinations for the API where the data will be retrieved; endpoint being the one for jamendo
   const endpoint = "tracks/";
-  const endpointGiphy = "https://api.giphy.com/v1/gifs/random";
+  // verify if https: is needed on endpoint Giphy
+  const endpointGiphy = "https://api.giphy.com/v1/gifs/search";
   // moodinput needed to be identified first because it is called in the paramsGiphy; it holds the reference to the HTML
   // element with the ID mood-input
   const moodInput = document.getElementById("mood-input");
@@ -82,6 +83,9 @@ console.log(data);
       console.error("Error:", error);
     });
 
+    getGiphy()
+
+
   // All Things Giphy
   const paramsGiphy = {
     api_key: apiKeyGiphy,
@@ -105,4 +109,14 @@ console.log(data);
       // Handle errors
       console.error("Error:", error);
     });
+  }
+  function getGiphy(){
+    let q = ""
+    let limit = ""
+    let offset = ""
+    let rating = ""
+    let lang = ""
+    let random_id = ""
+    let bundle = ""
+
   }
