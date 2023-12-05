@@ -60,7 +60,7 @@ body {
     max-width: 100%; /* image doesn't overflow its container */
     height: auto;
     border-radius: 8px; 
-    
+    overflow: auto;
 }
 
 @media screen and (max-width: 650px)
