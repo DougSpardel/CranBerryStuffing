@@ -62,3 +62,49 @@ body {
     border-radius: 8px; 
     
 }
+
+@media screen and (max-width: 650px)
+{
+    .dropdown-item{
+        font-size: 13px;
+        text-align: left;
+        margin-right: 5px;
+    }
+    
+    #header {
+        color:#ffffff;
+        font-size: 50px;
+        text-align: center;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 650px)
+{
+    .dropdown-item{
+        font-size: 20px;
+        text-align: left;
+        margin-rightz: 5px;
+    }
+    #header {
+        color:#ffffff;
+        font-size: 80px;
+        text-align: center;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media screen and (max-width: 4000px) and (min-width: 1000px)
+{
+    .dropdown-item{
+        font-size: 32px;
+        text-align: left;
+        margin-right: 5px;
+    }  
+    #header {
+        color:#ffffff;
+        font-size: 110px;
+        text-align: center;
+        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    }
+}
